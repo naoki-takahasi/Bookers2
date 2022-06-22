@@ -5,8 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to root_path
-    flash[:notice] = 'Welcome! You have signed up successfully.'
+    redirect_to user_path(id: current_user)
   end
 
   # before_action :configure_sign_up_params, only: [:create]
